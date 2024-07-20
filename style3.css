@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+    --header-hight: 3.5rem;
+    --title-color:hsl(0, 0%, 95%);
+    --text-color:hsl(0, 0%, 70%);
+    --text-color-light:hsl(0, 0%, 60%);
+    --body-color:hsl(0, 0%, 0%);
+    --container-color:hsl(0, 0%, 8%);
+
+    --body-font: "Poppins", sans-serif;
+    --sec-font: "Montserrat",sans-serif;
+    --biggest-font-size:2.75rem;
+    --h1-font-size:1.5rem;
+    --h2-font-size:1.25rem;
+    --h3-font-size:1rem;
+    --normal-font-size:.938rem;
+    --small-font-size:.813rem;
+    --smaller-font-size:.75rem;
+
+    --font-reg:400;
+    --font-mid:500;
+    --font-bold:700;
+
+    --z-tooltip:10;
+    --z-fixed:100;
+}
+@media screen and (max-width:1440px){
+    :root{
+    --biggest-font-size:5.5rem;
+    --h1-font-size:2.5rem;
+    --h2-font-size:1.5rem;
+    --h3-font-size:1.25rem;
+    --normal-font-size:1rem;
+    --small-font-size:.875rem;
+    --smaller-font-size:.813rem;
+    }
+    
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    background-color:var(--body-color);
+    padding: 40px;
+    
+}
+h1,h2,h3,h4{
+    color: var(--title-color);
+    font-family: var(--sec-font);
+    font-weight: var(--font-bold);
+}
+.section__title{
+    text-align: center;
+    font-size:var(--h1-font-size);
+    margin-bottom: 1.5rem;
+    transition: transform .4s;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+}
+.section__title:hover{
+    transform: scale(1.5);
+}
+label{
+    display:grid;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    height: 310px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+   
+}
+.highlights__grid{
+    grid-template-columns: repeat(2,350px);
+    justify-content: center;
+    padding-bottom: 5rem;
+}
+.flip__card{
+    position:relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+    z-index: 1;
+}
+.flip__card .front,
+.flip__card .back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: radial-gradient(circle at -8.9% 51.2%, rgb(255, 124, 0) 0%, rgb(255, 124, 0) 15.9%, rgb(255, 163, 77) 15.9%, rgb(255, 163, 77) 24.4%, rgb(19, 30, 37) 24.5%, rgb(19, 30, 37) 66%);
+
+    backface-visibility: hidden;
+    border-radius: 0 10px 0 10px;
+
+}
+.flip__card .back{
+    transform: rotateX(180deg);
+}
+label:hover .flip__card{
+    transform: rotateX(2deg);
+    box-shadow: 0 5px 5px var(--text-color);
+}
+input{
+    display: none;
+}
+:checked + .flip__card{
+    transform: rotateX(180deg);
+}
+label:hover :checked + .flip__card{
+    transform: rotateX(175deg);
+    box-shadow: 0 5px 5px var(--text-color-light);
+}
+.front img{
+    width: 110px;
+    height: 110px;
+   margin: 5rem;
+    border-radius: 20%;
+    transition: transform 0.4s;
+
+}
+.front img:hover{
+    transform: scale(1.2);
+}
+h3{
+    font-size:1.5rem;
+}
+h3:hover{
+    color: rgb(255, 217, 0);
+}
+.back h2{
+    color:rgb(255, 217, 0);
+}
+.back p{
+    color: var(--title-color);
+    text-align: initial;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    
+}
+.button{
+    background-color: hsla(0, 0%, 100%, 0.2);
+    padding: .25rem .5rem;
+    color: var(--title-color);
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    font-family: var(--sec-font);
+    font-weight: var(--font-bold);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  
+}
+.button i{
+    color: var(--title-color);
+}
